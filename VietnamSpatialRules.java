@@ -37,3 +37,4 @@ public double getMaxSpeed(String highwayTag, double _default) {
         return Country.DEU.toString();
     }
 }
+}
