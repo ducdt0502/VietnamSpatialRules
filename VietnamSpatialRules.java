@@ -37,7 +37,7 @@ public double getMaxSpeed(String highwayTag, double _default) {
             }
         }
         if(transportationMode == TransportationMode.BICYCLE){
-            switch(hightTag){
+            switch(highwayTag){
                 case "motorway":
                 case "motorway_link":
                     return RoadAcess.NO;
