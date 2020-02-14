@@ -15,9 +15,9 @@ public double getMaxSpeed(String highwayTag, double _default) {
         case "residential":
             return 80;
         case "tertiary":
-            return ;
+            return 60;
          case"secondary":
-            return ;
+            return 50;
         default:
             return super.getMaxSpeed(highwayTag, _default);
     }
