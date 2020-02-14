@@ -32,7 +32,7 @@ public double getMaxSpeed(String highwayTag, double _default) {
                 return RoadAccess.NO; 
         }
         
-
+                                 }
         return super.getAccess(highwayTag, transportationMode, _default);
     }
 
