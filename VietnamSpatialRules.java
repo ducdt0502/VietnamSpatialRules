@@ -13,7 +13,7 @@ public double getMaxSpeed(String highwayTag, double _default) {
         case "motorway":
             return 120;
         case "residential":
-            return 100;
+            return 80;
         case "tertiary":
             return ;
          case"secondary":
@@ -23,32 +23,18 @@ public double getMaxSpeed(String highwayTag, double _default) {
     }
 }
      @Override
- public RoadAccess getAccess(String highwayTag, TransportationMode transportationMode, RoadAccess _default) {
-    if (transportationMode == TransportationMode.MOTOR_VEHICLE) {
-            switch (highwayTag) {
-                case "path":
-                case "bridleway":
-                case "cycleway":
-                case "footway":
-                case "pedestrian":
-                    return RoadAccess.NO;
-                default:
-                    return _default;
-            }
+  public RoadAccess getAccess(String highwayTag, TransportationMode transportationMode, RoadAccess _default) {
+        if (transportationMode == TransportationMode.MOTOR_VEHICLE) {
+            if (highwayTag.equals("motorway"))
+                return RoadAccess.DESTINATION;
         }
-        if(transportationMode == TransportationMode.BICYCLE){
-            switch(highwayTag){
-                case "motorway":
-                case "motorway_link":
-                    return RoadAcess.NO;
-                default:
-                    return _default;
-                  
-            }
+        if(transportationMode == TransportationMode.BIYCLE){
+            if(hightwayTag.equals("motoway"))
+                return RoadAccess.NO;
         }
-        return _default;
-    }
 
+        return super.getAccess(highwayTag, transportationMode, _default);
+    }
    @Override
     public String getId() {
         throw new UnsupportedOperationException("No id for the DefaultSpatialRule");
