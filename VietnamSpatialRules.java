@@ -29,7 +29,7 @@ public double getMaxSpeed(String highwayTag, double _default) {
                 return RoadAccess.DESTINATION;
         }
         if( transportationMode == TransportationMode.BICYCLE){
-            if(highwayTag.equals("motoway))
+            if(highwayTag.equals("motoway"))
                 return RoadAccess.NO; 
         }
         
