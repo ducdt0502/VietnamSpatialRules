@@ -23,23 +23,34 @@ public double getMaxSpeed(String highwayTag, double _default) {
     }
 }
      @Override
-    public RoadAccess getAccess(String highwayTag, TransportationMode transportationMode, RoadAccess _default) {
-        if (transportationMode == TransportationMode.MOTOR_VEHICLE) {
-            if (highwayTag.equals("motoway"))
-                return RoadAccess.DESTINATION;
+ public RoadAccess getAccess(String highwayTag, TransportationMode transportationMode, RoadAccess _default) {
+    if (transportationMode == TransportationMode.MOTOR_VEHICLE) {
+            switch (highwayTag) {
+                case "path":
+                case "bridleway":
+                case "cycleway":
+                case "footway":
+                case "pedestrian":
+                    return RoadAccess.NO;
+                default:
+                    return _default;
+            }
         }
-        if( transportationMode == TransportationMode.BICYCLE){
-            if(highwayTag.equals("motoway"))
-                return RoadAccess.NO; 
+        if(transportationMode == TransportationMode.BICYCLE){
+            switch(hightTag){
+                case "motorway":
+                case "motorway_link":
+                    return RoadAcess.NO;
+                default:
+                    return _default;
+                  
+            }
         }
-        
-        
-        return super.getAccess(highwayTag, transportationMode, _default);
+        return _default;
     }
 
-    @Override
+   @Override
     public String getId() {
-        return Country.DEU.toString();
+        throw new UnsupportedOperationException("No id for the DefaultSpatialRule");
     }
-}
 }
