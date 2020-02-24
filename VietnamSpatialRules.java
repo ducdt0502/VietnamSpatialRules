@@ -36,7 +36,7 @@ public double getMaxSpeed(String highwayTag, double _default) {
         return super.getAccess(highwayTag, transportationMode, _default);
     }
    @Override
-    public String getId() {
-        throw new UnsupportedOperationException("No id for the DefaultSpatialRule");
+     public String getId() {
+        return Country.DEU.toString();
     }
 }
